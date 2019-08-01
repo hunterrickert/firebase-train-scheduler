@@ -1,0 +1,15 @@
+.jumbo-attr {
+    background-color:navy;
+    width: 100%;
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+}
+.results-titles {
+    width:100%;
+}
+.search-container {
+    border: 1px solid grey;
+    padding: 30px;
+    margin-bottom: 20px;
+}

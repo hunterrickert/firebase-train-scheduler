@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Employee</title>
+</head>
+<body>
+
+    <!-- <button id="test">i love coding</button> -->
+<div class="container">
+    <div class="jumbotron jumbotron-fluid jumbo-attr">
+        <div class="container">
+            <h1 class="display-4">Employee List</h1>
+
+        </div>
+    </div>
+    <div class="search-container">
+        <div class="results results-attr">
+            <div class="container-title">Employees</div>
+            <hr>
+            <table class="results-titles">
+                <thead>
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Employee Role</th>
+                    <th>Start Date</th>
+                    <th>Months Worked</th>
+                    <th>Current Rate</th>
+                    <th>Total Income</th>
+                </tr>
+                </thead>
+                <tbody class="employees">
+                </tbody>
+            </table>
+            <hr>
+        </div>
+    </div>
+    <div class="search-container">
+        <br>
+        <div class="container-title">
+            <i class="far fa-calendar-alt"></i> Search Parameters
+        </div>
+        <hr>
+        <div class="form-group">
+            <label>Employee name</label>
+            <input class="form-control name">
+        </div>
+
+        <div class="form-group">
+            <label>Role</label>
+            <input class="form-control role">
+        </div>
+
+        <div class="form-group">
+            <label>Start Date (MM/DD/YYYY)</label>
+            <input class="form-control startDate">
+        </div>
+        <div class="form-group">
+            <label>Monthly Rate</label>
+            <input class="form-control rate">
+        </div>
+        <button type="button" class="btn btn-primary btn-sm search">Add</button>
+
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+
+<script src="train-schedule.js"></script>
+</body>
+</html>
