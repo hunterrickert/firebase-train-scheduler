@@ -15,23 +15,24 @@
 <div class="container">
     <div class="jumbotron jumbotron-fluid jumbo-attr">
         <div class="container">
-            <h1 class="display-4">Employee List</h1>
+            <h1 class="display-4">What Time Is It?</h1>
+            <h6 class="small-text">Train Time..</h6>
 
         </div>
     </div>
     <div class="search-container">
         <div class="results results-attr">
-            <div class="container-title">Employees</div>
+            <div class="container-title">Current Train Schedule</div>
             <hr>
             <table class="results-titles">
                 <thead>
                 <tr>
-                    <th>Employee Name</th>
-                    <th>Employee Role</th>
-                    <th>Start Date</th>
-                    <th>Months Worked</th>
-                    <th>Current Rate</th>
-                    <th>Total Income</th>
+                    <th>Train Name</th>
+                    <th>Destination</th>
+                    <th>Frequency (min.)</th>
+                    <th>Next Arrival</th>
+                    <th>Minutes Away</th>
+                    <!-- <th>Total Income</th> -->
                 </tr>
                 </thead>
                 <tbody class="employees">
@@ -43,28 +44,28 @@
     <div class="search-container">
         <br>
         <div class="container-title">
-            <i class="far fa-calendar-alt"></i> Search Parameters
+            <i class="far fa-calendar-alt"></i>Add Train
         </div>
         <hr>
         <div class="form-group">
-            <label>Employee name</label>
+            <label>Train Name</label>
             <input class="form-control name">
         </div>
 
         <div class="form-group">
-            <label>Role</label>
+            <label>Destination</label>
             <input class="form-control role">
         </div>
 
         <div class="form-group">
-            <label>Start Date (MM/DD/YYYY)</label>
-            <input class="form-control startDate">
+            <label>First Train Time (HH:mm - Military Time)</label>
+            <input class="form-control startDate firstTime">
         </div>
         <div class="form-group">
-            <label>Monthly Rate</label>
-            <input class="form-control rate">
+            <label>Frequency (min.)</label>
+            <input class="form-control rate freq">
         </div>
-        <button type="button" class="btn btn-primary btn-sm search">Add</button>
+        <button type="button" class="btn btn-primary btn-sm search">Submit</button>
 
     </div>
 </div>
