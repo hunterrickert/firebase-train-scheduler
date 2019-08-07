@@ -32,12 +32,10 @@ $(".add-train-button").on("click", function (event) {
     var destination = $(".destination")
         .val()
         .trim();
-    var firstTime = moment(
+    var firstTime =
         $(".firstTime")
             .val()
-            .trim(),
-        "HH:mm"
-    ).format("X");
+            .trim();
     var freq = $(".freq")
         .val()
         .trim();
@@ -50,7 +48,7 @@ $(".add-train-button").on("click", function (event) {
         time: firstTime,
         freq: freq,
     }
-
+database.ref().push(newTrain);
     console.log(newTrain.train);
     console.log(newTrain.dest);
     console.log(newTrain.time);
@@ -64,29 +62,48 @@ $(".add-train-button").on("click", function (event) {
     $(".freq").val("");
 
 
-    var trainTime = moment.unix(firstTime).format("HH:mm");
+})
 
-    var difference = moment().diff(moment(trainTime), "minutes");
+database.ref().on("child_added", function(childSnapshot){
+    console.log(childSnapshot.val());
+    
+    var timeArr = childSnapshot.val().time.split(":")
+ 
 
-    var trainRemain = difference % frequency;
+    var trainTime = moment().hours(timeArr[0]).minutes(timeArr[1]);
+    var nextArrival;
+    var minAway
+    var frequency = childSnapshot.val().freq;
+    var maxMoment = moment.max(moment(), trainTime);
 
-    var minAway = frequency - trainRemain;
+    if(maxMoment === trainTime) {
+        nextArrival = trainTime.format("hh:mm A");
+        minAway = trainTime.diff(moment(), "minutes");
 
-    var nextArrival = moment().add(minAway, "minutes").format('HH:mm');
 
-    var nextArrival = moment().add(minAway, "minutes").format('hh:mm');
+    }else {
+     var difference = moment().diff(trainTime, "minutes");
     
 
+   var remainder = difference % frequency;
+  
+      minAway = frequency - remainder;
+    
+    nextArrival = moment().add(minAway, "m").format('hh:mm A');
+    
+    }
     var newRow = $("<tr>").append(
-        $("<td>").text(trainName),
-        $("<td>").text(destination),
-        $("<td>").text(freq),
+        $("<td>").text(childSnapshot.val().train),
+        $("<td>").text(childSnapshot.val().dest),
+        $("<td>").text(childSnapshot.val().freq),
         $("<td>").text(nextArrival),
         $("<td>").text(minAway),
     );
     
-    $(".results-titles > tbody").append(newRow);
+     $(".results-titles > tbody").append(newRow);
 })
+
+
 
 // var nextArrival = 
 
