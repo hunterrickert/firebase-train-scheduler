@@ -80,7 +80,7 @@ $(".add-train-button").on("click", function (event) {
     var newRow = $("<tr>").append(
         $("<td>").text(trainName),
         $("<td>").text(destination),
-        $("<td>").text(frequency),
+        $("<td>").text(freq),
         $("<td>").text(nextArrival),
         $("<td>").text(minAway),
     );
