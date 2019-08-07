@@ -64,14 +64,25 @@ $(".add-train-button").on("click", function (event) {
     $(".freq").val("");
 
 
-    var nextArrival = 
+    var trainTime = moment.unix(firstTime).format("HH:mm");
+
+    var difference = moment().diff(moment(trainTime), "minutes");
+
+    var trainRemain = difference % frequency;
+
+    var minAway = frequency - trainRemain;
+
+    var nextArrival = moment().add(minAway, "minutes").format('HH:mm');
+
+    var nextArrival = moment().add(minAway, "minutes").format('hh:mm');
+    
 
     var newRow = $("<tr>").append(
         $("<td>").text(trainName),
         $("<td>").text(destination),
         $("<td>").text(frequency),
-        // $("<td>").text(nextArrival),
-        // $("<td>").text(minAway),
+        $("<td>").text(nextArrival),
+        $("<td>").text(minAway),
     );
     
     $(".results-titles > tbody").append(newRow);
